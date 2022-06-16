@@ -8,6 +8,7 @@ mixin elem-timeline(date,job,company,description)
             h4(class='text-timeline sub-title')=company
             p(class='text-timeline')=description
 
+
 mixin elem-skills(name,percent_string,style_prop)
     div(class="skill-content")
         div(class="skill-text-container")
@@ -18,8 +19,10 @@ mixin elem-skills(name,percent_string,style_prop)
             
 block mainbody
     div#mainContainer 
-        - var list_experience=[["Aug 2021-now",'Engineer in computer science','Crédit Agricole Consumer Finance','I was in charge of the ServiceNow Platform, it\'s administration and developpement on it'],['May 2021- August 2021','Intern Computer Science','Crédit agricole Consumer Finance','In charge of developpement on ServiceNow']]
+        - var list_experience=[["Aug 2021-now",'Engineer - Computer Science','Crédit Agricole Consumer Finance','I was in charge of the ServiceNow Platform, it\'s administration and developpement on it'],['May 2021- August 2021','Internship - Computer Science','Crédit Agricole Consumer Finance','In charge of developpement on ServiceNow']]
+        - var list_education=[["Sept 2020- Sept 2022",'Master, specialized in Cybersecurity','ISEN Lille, Engineering School','Courses Taken : Secured Network, Advanced Network, Pentesting, Computer Forensic, Cryptography, Web Developpement Security, Application Developpement Security, Python Scripting, Network Programmation, Operating System(linux).'],["Sept 2019- Aug 2020",'Generalist Year','ISEN Lille, Engineering School','Courses Taken : Computer Science (Network and DataBase), Mathematics, Physic, Electronic, Automatic, Signal Analisis'],["Sept 2017- Aug 2020",'Preparatory Class','ISEN Lille, Engineering School','The French preparatory are an intensive two-year post- baccalauréat courses designed to prepare the students for entry into the Grandes Écoles. Courses Taken : Mathematics, Physics, Engineer Science, English, French Litterature.']]
         - var list_skills=[["Javascript/AngularJs/NodeJs",'80%','width:80%;'],['Python','80%',"width:80%;"],['Network','70%',"width:70%;"],['System Administration (linux)','60%',"width:60%;"],["PHP/MySQL/MongoDB",'75%',"width:75%;"],['HTML/CSS','90%',"width:90%;"]]
+
         div(class='container-content')
             div#about
                 div#img 
@@ -27,7 +30,7 @@ block mainbody
                 div#about-content
                     div#title
                         strong#title-about Hugo ERAUD-BERTHAUD
-                        p#sub-title-about Engineer in cybersecurity
+                        p#sub-title-about Cybersecurity Engineer
                     div#line-about
                     ul#list-about 
                         li(class="list-elem-about")
@@ -61,11 +64,16 @@ block mainbody
             p(class='pres-text-section')  I am always looking for new experiences and opportunities, so feel free to contact me !
         
 
-        div(class="title-section-container") Professional Experience
+        div(class="title-section-container") Education
+        div(class="timeline container-content ")    
+            for details in list_education
+                +elem-timeline(details[0],details[1],details[2],details[3])
 
+        div(class="title-section-container") Professional Experiences
         div(class="timeline container-content ")    
             for details in list_experience
                 +elem-timeline(details[0],details[1],details[2],details[3])
+
         div(class="title-section-container") Professional Skills
         div(class='container-content')
             div(class='skill-container-content')#skills
