@@ -1,0 +1,439 @@
+:root {
+    --main-theme-color: #e83b35;
+    --main-theme-color-darkest : #8C1410;
+    --main-theme-color-lightest :#E83B35;
+    --main-theme-color-lightest-leghtest :#EE7571;
+    --main-header-font-color:#3D4451;
+}
+
+body{
+    font-family: Georgia, serif;
+    margin:0;
+    background-color: white;
+    color: var(--main-header-font-color)
+}
+
+/*################HEADER#######################*/
+
+.title-section{
+    margin:0;
+    padding-top :10px;
+    padding-bottom :4px;
+    font-weight: bold;
+    font-size: 0.85zrem;
+}
+
+.title-wraper { 
+    color: white;
+    display:inline-block;
+    text-transform:uppercase;
+    margin-right: 10px;
+    margin-left:10px ;
+}
+
+.title-wraper:after {
+  display:block;
+  content: '';
+  border-bottom: solid 3px var(--main-theme-color);  
+  transform: scaleX(0);  
+  transition: transform 250ms ease-in-out;
+  
+}
+
+.title-wraper:hover:after { 
+    transform: scaleX(1);
+}
+
+.title-wraper.fromLeft:after{ 
+     transform-origin:  0% 50%;
+}
+
+#div-header{
+    margin:0;
+    background-color : var(--main-header-font-color);
+    display : flex;
+    justify-content:flex-end;
+}
+
+/*################GENERAL#######################*/
+#mainContainer{
+    height:auto;
+    width: 100%;
+    background : white;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 80px;;
+    padding-bottom: 25px;;
+} 
+
+@media only screen and (min-width: 1000px) {
+    .container-content{
+        height:auto;
+        width: 900px;
+        background-color: white;
+        margin-bottom: 35px;
+        box-shadow: 0 10px 16px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
+    }
+    #pres-text-div {
+        height :auto;
+        width:900px;
+        margin-bottom: 50px;
+    }
+    
+}
+
+@media only screen and (max-width: 999px) {
+    .container-content{
+        height:auto;
+        width: 90%;
+        background-color: white;
+        margin-bottom: 35px;
+        box-shadow: 0 10px 16px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
+    }
+    #pres-text-div {
+        height :auto;
+        width:90%;
+        margin-bottom: 50px;
+    }
+}
+
+/*##################ABOUT SECTION#######################*/
+
+#img{
+    width:60%;
+    margin-left: 25px;
+}
+
+#about-content{
+    margin-left:40px;
+    margin-right: 40px;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+}
+
+@media only screen and (min-width: 1000px) {
+    #img-profil-cv{
+        height :auto;
+        width:330px;
+    }
+    
+}
+
+@media only screen and (max-width: 999px) {
+    #img-profil-cv{
+        height :auto;
+        width:75%;
+    }
+    
+}
+
+#about{
+    display:flex;
+    flex-direction: row;
+    padding-top: 25px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 7px;
+}
+
+#title-about{
+    font-size :1.25rem;
+    color:var(--main-header-font-color);
+    margin: 0;
+}
+
+#name-title{
+    font-size :1.25rem;
+    font-weight: bold;
+    color:var(--main-header-font-color)
+}
+
+#media{
+    height: 70px;
+    width:auto;
+    background-color: var(--main-theme-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#sub-title-about{
+    margin:0;
+    padding-top: 5px;
+}
+
+#line-about{
+    width: 100%;
+    border-bottom: 0.5px solid var(--main-theme-color);
+    margin-top: 20px;
+}
+*
+#list-about{
+    list-style:none;
+    margin :0;
+    padding:0;
+}
+
+.list-elem-about{
+    padding-top:20px;
+}
+
+.title-elem-about{
+    display: block;
+    width :120px;
+    float: left;
+}
+
+#mail-about{
+    text-decoration: none;
+    color:var(--main-header-font-color);
+    
+}
+
+.icon-about{
+    color :white;
+    font-size:2rem;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+/*#################DL CV##################*/
+
+#dl-cv{
+    text-decoration: none;
+    margin-bottom: 35px;
+}
+
+#dl-cv-div{
+    border: 1px solid var(--main-header-font-color);
+    padding:10px;
+    margin-bottom: 35px;
+    color : var(--main-header-font-color);
+    transition :1s;
+}
+
+#dl-cv-div:hover{
+    transition: 1s;
+    box-shadow: 0 5px 16px 0 rgb(0 0 0 / 20%), 0 6px 10px 0 rgb(0 0 0 / 19%);
+}
+
+.title-section-container{
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: var(--main-header-font-color);
+}
+
+/*##############PRESENTATION##############*/
+.pres-text-section{
+    padding:0;
+    text-align: center;
+    color: var(--main-header-font-color);
+    margin:0;
+    font-size: 1.3rem;
+}
+
+/*#################SKILLS#################*/
+
+.skill-container-content{
+    display :flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.skill-content{
+    padding-right: 15px;
+    padding-left: 15px;
+    padding-bottom: 25px;
+}
+
+.skill-text-container{
+    display:flex;
+    width:320px;
+    height: auto;
+    justify-content: space-between;
+
+}
+.skill-name{
+    color: var(--main-header-font-color);
+    width : 300px;
+    margin :0;
+    padding-bottom: 15px;
+    padding-top: 15px;
+}
+.skill-percent-text{
+    color: var(--main-header-font-color);
+}
+
+.skill-bar{
+    height: 5px;
+    width : 320px;
+    background-color: var(--main-header-font-color);
+    border: 0.5px solid var(--main-header-font-color);
+    border-radius: 30px ;
+}
+
+.skill-percent{
+    background-color:var(--main-theme-color);
+    height: 4px;
+    border: 0.5px solid var(--main-theme-color-darkest);
+    border-radius: 30px;
+}
+
+
+/*####################Timeline Experience################*/
+
+.timeline {
+    position: relative;
+    margin: 0 auto;
+    height:auto;
+    background-color: white;
+    margin-bottom: 35px;
+    
+  }
+  
+  .timeline::after {
+    content: '';
+    position: absolute;
+    width: 6px;
+    background-color: var(--main-theme-color-lightest-leghtest);
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -3px;
+  }
+  
+  .container {
+    padding: 10px 40px;
+    position: relative;
+    background-color: inherit;
+    width: 37%;
+  }
+  
+  .container .left{
+    padding-right:0px ;
+  }
+  
+
+  .container::after {
+    content: '';
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    right: -8px;
+    background-color: var(--main-theme-color);
+    border: 1px solid var(--main-theme-color-darkest);
+    top: 25px;
+    border-radius: 50%;
+    z-index: 1;
+  }
+  
+  .left {
+    left: 0%;
+    margin-left: 37px;
+  }
+  
+  .right {
+    left: 50%;
+  }
+  
+  .left::before {
+    content: " ";
+    height: 0;
+    position: absolute;
+    top: 22px;
+    width: 0;
+    z-index: 1;
+    right: 30px;
+    border: medium solid white;
+    border-width: 10px 0 10px 10px;
+    border-color: transparent transparent transparent var(--main-theme-color);
+  }
+  
+  .right::before {
+    content: " ";
+    height: 0;
+    position: absolute;
+    top: 22px;
+    width: 0;
+    z-index: 1;
+    left: 30px;
+    border: medium solid white;
+    border-width: 10px 10px 10px 0;
+    border-color: transparent var(--main-theme-color) transparent transparent;
+  }
+
+  .right::after {
+    left: -8px;
+  }
+  
+
+  .content {
+    
+    background-color: white;
+    position: relative;
+    border-radius: 6px;
+    box-shadow: 0 5px 16px 0 rgb(0 0 0 / 20%), 0 6px 10px 0 rgb(0 0 0 / 19%);
+  }
+
+  @media screen and (max-width: 1000px) {
+
+    .timeline::after {
+      left: 31px;
+    }
+  
+
+    .container {
+      width: 80%;
+      padding-left: 70px;
+      padding-right: 25px;
+    }
+  
+
+    .container::before {
+      left: 60px;
+      border: medium solid white;
+      border-width: 10px 10px 10px 0;
+      border-color: transparent var(--main-theme-color) transparent transparent;
+    }
+
+    .left::after, .right::after {
+      left: 22px;
+    }
+  
+
+    .right {
+      left: 0%;
+    }
+
+    .left{
+        margin-left:0px;
+    }
+  }
+
+.color-bar-timeline{
+    padding:0;
+    margin:0;
+    width:100%;
+    background-color: var(--main-theme-color);
+    height: 33px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+}
+
+.text-timeline{
+    margin:0;
+    padding: 10px 15px;
+}
+
+.timeline-date{
+    color :white;
+}
+.sub-title{
+    padding-top :0;
+}

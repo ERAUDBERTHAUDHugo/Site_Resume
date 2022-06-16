@@ -1,0 +1,76 @@
+extends layout
+mixin elem-timeline(date,job,company,description)
+    div(class="container left")
+        div(class="content")
+            div(class='color-bar-timeline')
+                p(class="timeline-date")=date 
+            h2(class='text-timeline')=job 
+            h4(class='text-timeline sub-title')=company
+            p(class='text-timeline')=description
+
+mixin elem-skills(name,percent_string,style_prop)
+    div(class="skill-content")
+        div(class="skill-text-container")
+            p(class="skill-name")=name
+            p(class="skill-percent-text")=percent_string
+        div(class="skill-bar")
+            div(class="skill-percent", style=style_prop)
+            
+block mainbody
+    div#mainContainer 
+        - var list_experience=[["Aug 2021-now",'Engineer in computer science','Crédit Agricole Consumer Finance','I was in charge of the ServiceNow Platform, it\'s administration and developpement on it'],['May 2021- August 2021','Intern Computer Science','Crédit agricole Consumer Finance','In charge of developpement on ServiceNow']]
+        - var list_skills=[["Javascript/AngularJs/NodeJs",'80%','width:80%;'],['Python','80%',"width:80%;"],['Network','70%',"width:70%;"],['System Administration (linux)','60%',"width:60%;"],["PHP/MySQL/MongoDB",'75%',"width:75%;"],['HTML/CSS','90%',"width:90%;"]]
+        div(class='container-content')
+            div#about
+                div#img 
+                    img#img-profil-cv(src="../../public/images/PHOTO_CV.jpg", alt="Picture not available for now...")
+                div#about-content
+                    div#title
+                        strong#title-about Hugo ERAUD-BERTHAUD
+                        p#sub-title-about Engineer in cybersecurity
+                    div#line-about
+                    ul#list-about 
+                        li(class="list-elem-about")
+                            strong(class="title-elem-about") AGE
+                            span 22
+                        li(class="list-elem-about")
+                            strong(class="title-elem-about") LOCATION
+                            span Paris, FRANCE
+                        li(class="list-elem-about")
+                            strong(class="title-elem-about") E-MAIL
+                            span 
+                                a#mail-about( href="mailto:hugo.eraud-berthaud@student.junia.com") hugo.eraud-berthaud@student.junia.com
+                        li(class="list-elem-about")
+                            strong(class="title-elem-about") PHONE
+                            span +33 6 64 28 56 73
+            div#media
+                a(class="linked-icons-about", href="https://github.com/ERAUDBERTHAUDHugo")
+                    i.fa.fa-github(class="icon-about", aria-hidden='true')
+                a(class="linked-icons-about", href="https://www.linkedin.com/in/hugo-eraud-berthaud/")   
+                    i.fa.fa-linkedin.xl(class="icon-about", aria-hidden='true')   
+
+
+        a#dl-cv(href="../../public/files/ERAUD-BERTHAUD_Hugo_CV.pdf", DOWNLOAD)
+            div#dl-cv-div DOWNLOAD RESUME
+
+
+        div#pres-text-div 
+            p(class='pres-text-section')  Hello, I'm Hugo ERAUD-BERTHAUD.
+            p(class='pres-text-section') I'm passionnate about computer science and cybersecurity.
+            p(class='pres-text-section')  This web site will show you my resume and is a plateform for all my projects.
+            p(class='pres-text-section')  I am always looking for new experiences and opportunities, so feel free to contact me !
+        
+
+        div(class="title-section-container") Professional Experience
+
+        div(class="timeline container-content ")    
+            for details in list_experience
+                +elem-timeline(details[0],details[1],details[2],details[3])
+        div(class="title-section-container") Professional Skills
+        div(class='container-content')
+            div(class='skill-container-content')#skills
+                for skills in list_skills
+                    +elem-skills(skills[0],skills[1],skills[2])
+
+
+        
