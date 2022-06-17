@@ -1,8 +1,11 @@
+fixclass_timeline();
+
 
 function fixclass_timeline(){
     // fix education
     var education=document.getElementById('education');
     var listElem =education.childNodes;
+    console.log(listElem)
     var n=0;
     Array.from(listElem).forEach(el => {
         if(n!=0){
@@ -26,6 +29,7 @@ function fixclass_timeline(){
         }
         n++;
     });
-}
 
-fixclass_timeline();
+    return 1
+    
+}

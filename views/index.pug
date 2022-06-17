@@ -1,13 +1,26 @@
 extends layout
-mixin elem-timeline(date,job,company,description)
+
+mixin elem-timeline-experience(date,job,company,description,skills)
     div(class="container left")
         div(class="content")
             div(class='color-bar-timeline')
                 p(class="timeline-date")=date 
             h2(class='text-timeline')=job 
             h4(class='text-timeline sub-title')=company
-            p(class='text-timeline')=description
+            p(class='text-timeline experience')#desc-exp=description
+            div(class="container-skills-exp text-timeline", style="font-weight:bold;") SKILLS USED : 
+                div(class='text-timeline experience-hover' )
+                    each skill in skills
+                        div(class="skills-experience")=skill
 
+mixin elem-timeline-education(date,job,company,description)
+    div(class="container left")
+        div(class="content")
+            div(class='color-bar-timeline')
+                p(class="timeline-date")=date 
+            h2(class='text-timeline')=job 
+            h4(class='text-timeline sub-title')=company
+            p(class='text-timeline ')=description
 
 mixin elem-skills(name,percent_string,style_prop)
     div(class="skill-content")
@@ -19,9 +32,9 @@ mixin elem-skills(name,percent_string,style_prop)
             
 block mainbody
     div#mainContainer 
-        - var list_experience=[["Aug 2021-now",'Engineer - Computer Science','Crédit Agricole Consumer Finance','I was in charge of the ServiceNow Platform, it\'s administration and developpement on it'],['May 2021- August 2021','Internship - Computer Science','Crédit Agricole Consumer Finance','In charge of developpement on ServiceNow']]
+        - var list_experience=[["Aug 2021-now",'Engineer - ITSM Developper and Administrator','Crédit Agricole Consumer Finance','I was in charge of the ServiceNow Platform, it\'s administration and developpement on it',["Javascript","AngularJs", "RESP API", "SOAP Message","English","Team Work"]],['May 2021- August 2021','Internship - ITSM Developper','Crédit Agricole Consumer Finance','In charge of developpement on ServiceNow',["Javascript","AngularJs", "RESP API", "SOAP Message","Self-Learning","Team Work"]]]
         - var list_education=[["Sept 2020- Sept 2022",'Master, specialized in Cybersecurity','ISEN Lille, Engineering School','Courses Taken : Secured Network, Advanced Network, Pentesting, Computer Forensic, Cryptography, Web Developpement Security, Application Developpement Security, Python Scripting, Network Programmation, Operating System(linux).'],["Sept 2019- Aug 2020",'Generalist Year','ISEN Lille, Engineering School','Courses Taken : Computer Science (C, Network and DataBase), Mathematics, Physic, Electronic, Automatic, Signal Analisis'],["Sept 2017- Aug 2020",'Preparatory Class','ISEN Lille, Engineering School','The French preparatory are an intensive two-year post- baccalauréat courses designed to prepare the students for entry into the Grandes Écoles. Courses Taken : Mathematics, Physics, Engineer Science, English, French Litterature.']]
-        - var list_skills=[["Javascript/AngularJs/NodeJs",'80%','width:80%;'],['Python','80%',"width:80%;"],['Network','70%',"width:70%;"],['System Administration (linux)','60%',"width:60%;"],["PHP/MySQL/MongoDB",'75%',"width:75%;"],['HTML/CSS','90%',"width:90%;"]]
+        - var list_skills=[["Javascript/AngularJs/NodeJs",'80%','width:80%;'],['Python','80%',"width:80%;"],['Network','70%',"width:70%;"],['System Administration (linux)','60%',"width:60%;"],["PHP/MySQL/MongoDB",'75%',"width:75%;"],['HTML/CSS','90%',"width:90%;"],["French","100%","width:100%"],["English","90%","width:90%"]]
 
         div(class='container-content')
             div#about
@@ -37,8 +50,13 @@ block mainbody
                             strong(class="title-elem-about") AGE
                             span 22
                         li(class="list-elem-about")
+                            strong(class="title-elem-about") NATIONALITY
+                            span French
+                        li(class="list-elem-about")
                             strong(class="title-elem-about") LOCATION
                             span Paris, FRANCE
+                            
+
                         li(class="list-elem-about")
                             strong(class="title-elem-about") E-MAIL
                             span 
@@ -46,7 +64,7 @@ block mainbody
                         li(class="list-elem-about")
                             strong(class="title-elem-about") PHONE
                             span +33 6 64 28 56 73
-                            
+
             div#media
                 a(class="linked-icons-about", href="https://github.com/ERAUDBERTHAUDHugo")
                     i.fa.fa-github(class="icon-about", aria-hidden='true')
@@ -68,12 +86,12 @@ block mainbody
         div(class="title-section-container") Education
         div(class="timeline container-content ", id="education")    
             for details in list_education
-                +elem-timeline(details[0],details[1],details[2],details[3])
+                +elem-timeline-education(details[0],details[1],details[2],details[3])
 
         div(class="title-section-container") Professional Experiences
         div(class="timeline container-content ")#experience    
             for details in list_experience
-                +elem-timeline(details[0],details[1],details[2],details[3])
+                +elem-timeline-experience(details[0],details[1],details[2],details[3],details[4])
 
         div(class="title-section-container") Professional Skills
         div(class='container-content')
@@ -94,7 +112,7 @@ block mainbody
                     p.test-interests Computer Science   
                     i.fa.fa-laptop-code.icon-interests
                 div.interest-container
-                    p.test-interests Role playing Game
+                    p.test-interests Role Playing Game
                     i.fa.fa-dice-d20.icon-interests
 
 

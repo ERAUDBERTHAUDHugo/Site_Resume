@@ -452,6 +452,37 @@ body{
     padding-top :0;
 }
 
+/*####################Experience Specific################*/
+
+
+.container-experience-hover{
+    display:none;
+}
+
+.container-experience{
+    display:block;
+}
+
+.experience-hover{
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.hover-skills{
+    display:none;
+}
+
+.skills-experience{
+    align-items: center;
+    font-size: 0.9rem;
+    border: 0.5px solid #8C1410;
+    margin : 5px 5px;
+    padding :3px 3px;
+    border-radius: 5px;
+    background-color: var(--main-theme-color);
+    color: white;
+}
 
 /*####################Interests################*/
 
@@ -476,6 +507,6 @@ body{
 }
 
 .test-interests{
-    color: var(--main-theme-color);
+    color: var(--main-header-font-color);
     font-weight: bold;
 }
