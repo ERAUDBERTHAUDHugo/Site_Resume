@@ -9,7 +9,7 @@
 body{
     font-family: Georgia, serif;
     margin:0;
-    background-color: white;
+    
     color: var(--main-header-font-color)
 }
 
@@ -17,14 +17,14 @@ body{
 
 .title-section{
     margin:0;
-    padding-top :10px;
-    padding-bottom :4px;
+    padding-top :20px;
+    padding-bottom :20px;
     font-weight: bold;
     font-size: 0.85zrem;
 }
 
 .title-wraper { 
-    color: white;
+    color: var(--main-header-font-color);
     display:inline-block;
     text-transform:uppercase;
     margin-right: 10px;
@@ -50,16 +50,20 @@ body{
 
 #div-header{
     margin:0;
-    background-color : var(--main-header-font-color);
+    background-color : white;
     display : flex;
     justify-content:flex-end;
+    box-shadow: 0 10px 16px 0 rgb(0 0 0 / 20%);
+    position: fixed;   
+    width: 100%;
+    z-index: 4;
 }
 
 /*################GENERAL#######################*/
 #mainContainer{
     height:auto;
     width: 100%;
-    background : white;
+    background : #efefef;
     display:flex;
     flex-direction: column;
     align-items: center;
@@ -103,6 +107,13 @@ body{
 #img{
     width:60%;
     margin-left: 25px;
+}
+
+@media only screen and (max-width: 750px) {
+    #img{
+        display :none;
+    }
+    
 }
 
 #about-content{
@@ -223,6 +234,7 @@ body{
 .title-section-container{
     font-size: 1.5rem;
     margin-bottom: 15px;
+    margin-top: 35px;
     color: var(--main-header-font-color);
 }
 
@@ -284,7 +296,7 @@ body{
 }
 
 
-/*####################Timeline Experience################*/
+/*####################Timeline################*/
 
 .timeline {
     position: relative;
@@ -438,4 +450,32 @@ body{
 }
 .sub-title{
     padding-top :0;
+}
+
+
+/*####################Interests################*/
+
+#interests{
+    display:flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    background-color: white;
+    width: 100%;
+}
+
+.icon-interests{
+    color:var(--main-theme-color);
+    font-size: 2rem;
+}
+
+.interest-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.test-interests{
+    color: var(--main-theme-color);
+    font-weight: bold;
 }
