@@ -7,11 +7,14 @@ mixin elem-timeline-experience(date,job,company,description,skills)
                 p(class="timeline-date")=date 
             h2(class='text-timeline')=job 
             h4(class='text-timeline sub-title')=company
-            p(class='text-timeline experience')#desc-exp=description
-            div(class="container-skills-exp text-timeline", style="font-weight:bold;") SKILLS USED : 
-                div(class='text-timeline experience-hover' )
-                    each skill in skills
-                        div(class="skills-experience")=skill
+            div#maincontent-exp
+                div#not-hover-exp
+                    p(class='text-timeline experience')#desc-exp=description
+                    p(class='text-timeline', style='font-style:italic') Hover for more ! 
+                div(class="container-skills-exp text-timeline", style="font-weight:bold;")#hover-exp SKILLS USED : 
+                    div(class='text-timeline experience-hover' )
+                        each skill in skills
+                            div(class="skills-experience")=skill
 
 mixin elem-timeline-education(date,job,company,description)
     div(class="container left")
@@ -29,12 +32,27 @@ mixin elem-skills(name,percent_string,style_prop)
             p(class="skill-percent-text")=percent_string
         div(class="skill-bar")
             div(class="skill-percent", style=style_prop)
+
+mixin elem-projects(name,description,lienGit,skills)
+    div(class="content-project")
+        h2(class='text-timeline')=name
+        a(class='text-timeline link-project', href=lienGit) GitHub Repository
+        div#maincontent-exp
+            div#not-hover-exp
+                p(class='text-timeline')#desc-exp=description
+                
+                p(class='text-timeline', style='font-style:italic') Hover for more ! 
+            div(class="container-skills-exp text-timeline", style="font-weight:bold;")#hover-exp 
+                div(class='text-timeline experience-hover' )
+                    each skill in skills
+                        div(class="skills-experience")=skill
             
 block mainbody
-    div#mainContainer 
-        - var list_experience=[["Aug 2021-now",'Engineer - ITSM Developper and Administrator','Crédit Agricole Consumer Finance','I was in charge of the ServiceNow Platform, it\'s administration and developpement on it',["Javascript","AngularJs", "RESP API", "SOAP Message","English","Team Work"]],['May 2021- August 2021','Internship - ITSM Developper','Crédit Agricole Consumer Finance','In charge of developpement on ServiceNow',["Javascript","AngularJs", "RESP API", "SOAP Message","Self-Learning","Team Work"]]]
+    div#mainContainer
+        - var list_experience=[["Aug 2021-now",'Engineer - ITSM Developper and Administrator','Crédit Agricole Consumer Finance','I was in charge of the ServiceNow Platform, it\'s administration and developpement on it',["Javascript","AngularJs","ServiceNow", "RESP API", "SOAP Message","English","Team Work"]],["Sept 2021 - May 2022",'Final Project - Security of a small company','ISEN - Engineering School','A project with 8 other students on the cyberange ( a manager of virtual machines). We designed the company\' network, cybersecurity defense and cyberattacks on it',["System Administration","Linux", "Network", "Pyhton","Bash"]],['May 2021- August 2021','Internship - ITSM Developper','Crédit Agricole Consumer Finance','In charge of developpement on ServiceNow',["Javascript","AngularJs","ServiceNow", "RESP API", "SOAP Message","Self-Learning","Team Work"]]]
         - var list_education=[["Sept 2020- Sept 2022",'Master, specialized in Cybersecurity','ISEN Lille, Engineering School','Courses Taken : Secured Network, Advanced Network, Pentesting, Computer Forensic, Cryptography, Web Developpement Security, Application Developpement Security, Python Scripting, Network Programmation, Operating System(linux).'],["Sept 2019- Aug 2020",'Generalist Year','ISEN Lille, Engineering School','Courses Taken : Computer Science (C, Network and DataBase), Mathematics, Physic, Electronic, Automatic, Signal Analisis'],["Sept 2017- Aug 2020",'Preparatory Class','ISEN Lille, Engineering School','The French preparatory are an intensive two-year post- baccalauréat courses designed to prepare the students for entry into the Grandes Écoles. Courses Taken : Mathematics, Physics, Engineer Science, English, French Litterature.']]
         - var list_skills=[["Javascript/AngularJs/NodeJs",'80%','width:80%;'],['Python','80%',"width:80%;"],['Network','70%',"width:70%;"],['System Administration (linux)','60%',"width:60%;"],["PHP/MySQL/MongoDB",'75%',"width:75%;"],['HTML/CSS','90%',"width:90%;"],["French","100%","width:100%"],["English","90%","width:90%"]]
+        - var list_projects=[["Sudoku Solver","A sudoku solver with all the logic made with Javascript","https://github.com/ERAUDBERTHAUDHugo/Sudoku-Solver-JS",["Javascript", "Maths"]],["Vigenere Illustrated","This Project is design to explain how the Vigenere encryption algorithm is working to people with very few knowledge in Maths and Cryptography","https://github.com/ERAUDBERTHAUDHugo/Vigenere-Illustrated",["Javascript"," Maths"]],["This Web site","The main goal of this web site is to be a plateform for all my project.","https://github.com/ERAUDBERTHAUDHugo/Site_Resume",["Express", "NodeJs", "PUG", "Debian Administration"]]]
 
         div(class='container-content')
             div#about
@@ -114,6 +132,11 @@ block mainbody
                 div.interest-container
                     p.test-interests Role Playing Game
                     i.fa.fa-dice-d20.icon-interests
+
+        div(class="title-section-container") My Projects          
+        div(class='container-project')
+            for skills in list_projects
+                +elem-projects(skills[0],skills[1],skills[2],skills[3])
 
 
         

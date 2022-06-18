@@ -33,3 +33,9 @@ function fixclass_timeline(){
     return 1
     
 }
+
+
+var displayHeader= function(elem){
+    console.log('test');
+    console.log(elem);
+}

@@ -59,7 +59,22 @@ body{
     z-index: 4;
 }
 
+#div-header{
+    margin:0;
+    background-color : white;
+    display : flex;
+    justify-content:flex-end;
+    box-shadow: 0 10px 16px 0 rgb(0 0 0 / 20%);
+    position: fixed;   
+    width: 100%;
+    z-index: 4;
+}
+
+
+
+
 /*################GENERAL#######################*/
+
 #mainContainer{
     height:auto;
     width: 100%;
@@ -74,7 +89,7 @@ body{
 @media only screen and (min-width: 1000px) {
     .container-content{
         height:auto;
-        width: 900px;
+        width: 950px;
         background-color: white;
         margin-bottom: 35px;
         box-shadow: 0 10px 16px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
@@ -194,7 +209,7 @@ body{
 
 .title-elem-about{
     display: block;
-    width :120px;
+    width :140px;
     float: left;
 }
 
@@ -239,6 +254,7 @@ body{
 }
 
 /*##############PRESENTATION##############*/
+
 .pres-text-section{
     padding:0;
     text-align: center;
@@ -309,7 +325,7 @@ body{
     
   }
   
-  .timeline::after {
+.timeline::after {
     content: '';
     position: absolute;
     width: 6px;
@@ -318,43 +334,42 @@ body{
     bottom: 0;
     left: 50%;
     margin-left: -3px;
-  }
+}
   
-  .container {
+.container {
     padding: 10px 40px;
     position: relative;
     background-color: inherit;
     width: 37%;
-  }
+}
   
-  .container .left{
+.container .left{
     padding-right:0px ;
-  }
+}
   
-
-  .container::after {
+.container::after {
     content: '';
     position: absolute;
     width: 15px;
     height: 15px;
-    right: -8px;
+    right: -15px;
     background-color: var(--main-theme-color);
     border: 1px solid var(--main-theme-color-darkest);
     top: 25px;
     border-radius: 50%;
     z-index: 1;
-  }
+}
   
-  .left {
+.left {
     left: 0%;
     margin-left: 37px;
-  }
+}
   
-  .right {
+.right {
     left: 50%;
-  }
+}
   
-  .left::before {
+.left::before {
     content: " ";
     height: 0;
     position: absolute;
@@ -365,9 +380,9 @@ body{
     border: medium solid white;
     border-width: 10px 0 10px 10px;
     border-color: transparent transparent transparent var(--main-theme-color);
-  }
+}
   
-  .right::before {
+.right::before {
     content: " ";
     height: 0;
     position: absolute;
@@ -378,22 +393,22 @@ body{
     border: medium solid white;
     border-width: 10px 10px 10px 0;
     border-color: transparent var(--main-theme-color) transparent transparent;
-  }
+}
 
-  .right::after {
+.right::after {
     left: -8px;
-  }
+}
   
 
-  .content {
+.content {
     margin-bottom: 15px;;
     background-color: white;
     position: relative;
     border-radius: 6px;
     box-shadow: 0 5px 16px 0 rgb(0 0 0 / 20%), 0 6px 10px 0 rgb(0 0 0 / 19%);
-  }
+}
 
-  @media screen and (max-width: 1000px) {
+@media screen and (max-width: 1000px) {
 
     .timeline::after {
       left: 31px;
@@ -426,7 +441,7 @@ body{
     .left{
         margin-left:0px;
     }
-  }
+}
 
 .color-bar-timeline{
     padding:0;
@@ -454,12 +469,23 @@ body{
 
 /*####################Experience Specific################*/
 
-
-.container-experience-hover{
+not-hover-exp {
+    display: block;
+ }
+  
+#hover-exp {
     display:none;
 }
 
-.container-experience{
+#maincontent-exp{
+    display:inline-block;
+}
+
+#maincontent-exp:hover #not-hover-exp{
+    display:none;
+}
+
+#maincontent-exp:hover #hover-exp{
     display:block;
 }
 
@@ -467,10 +493,6 @@ body{
     display:flex;
     flex-direction: row;
     flex-wrap: wrap;
-}
-
-.hover-skills{
-    display:none;
 }
 
 .skills-experience{
@@ -509,4 +531,57 @@ body{
 .test-interests{
     color: var(--main-header-font-color);
     font-weight: bold;
+}
+
+
+/*####################Projects################*/
+
+.container-project{
+    display:flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 950px;
+}
+
+
+@media only screen and (min-width: 1000px) {
+    .container-project{
+        display:flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: space-around;
+        width: 950px;
+        margin-bottom: 35px;
+    }
+    
+}
+
+@media only screen and (max-width: 999px) {
+    .container-project{
+        display:flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: space-around;
+        width: 90%;
+        
+    }
+}
+
+
+.content-project{
+    width:30%;
+    margin:0px;
+    padding :10px;
+    box-shadow: 0 5px 16px 0 rgb(0 0 0 / 20%), 0 6px 10px 0 rgb(0 0 0 / 19%);
+    background-color: white;
+    min-width: 250px;
+    margin-bottom:20px;
+    /*max-height: 200px;*/
+}
+
+.link-project{
+    font-size:0.8rem;
+    font-style: italic;
+    text-decoration: none;
 }
